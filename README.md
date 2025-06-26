@@ -92,7 +92,8 @@ C:\Windows\filebrowser\
 
 ## 📷 Preview
 
-![Animated Tray Icon Example](https://user-images.githubusercontent.com/yourplaceholder/sample-icon-preview.gif)
+![Animated Tray Icon Example]([https://user-images.githubusercontent.com/yourplaceholder/sample-icon-preview.gif](https://raw.githubusercontent.com/shamim4s/Process-Monitor-from-tray/master/img/icons/animation/Blocks@1x-1.0s-300px-300px.gif
+))
 
 ---
 
