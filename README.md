@@ -46,7 +46,7 @@ C:\Windows\filebrowser\
 1. **Clone the repository** (or create your own and copy the script):
 
    ```bash
-   git clone https://github.com/yourname/filebrowser-tray.git
+   git clone https://github.com/shamim4s/Process-Monitor-from-tray.git
    cd filebrowser-tray
    ```
 
@@ -101,4 +101,4 @@ C:\Windows\filebrowser\
 
 ## 📝 License
 
-MIT © 2025 Your Name
+MIT © 2025 Shamim
