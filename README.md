@@ -99,6 +99,84 @@ C:\Windows\filebrowser\
 
 ---
 
+# 🪟 Go Windows App with PNG Icon
+
+This guide shows how to use a **PNG icon** for your **Windows Go application** by converting it to `.ico` and embedding it during build time using `rsrc`.
+
+---
+
+## 📦 Prerequisites
+
+- [Go](https://golang.org/dl/) installed (1.16+ recommended)
+- A `.png` file to use as your application icon
+- Windows OS for building or [Cross-compiling](https://github.com/fyne-io/fyne-cross)
+
+---
+
+## 🪄 Step 1: Convert PNG to ICO
+
+Windows requires `.ico` files for executable icons.
+
+You can convert your PNG using:
+
+- **Online tools**:
+  - [cloudconvert.com/png-to-ico](https://cloudconvert.com/png-to-ico)
+  - [convertico.com](https://convertico.com/)
+- **Offline tools**:
+  - [GIMP](https://www.gimp.org/)
+  - [IrfanView](https://www.irfanview.com/)
+  - [ImageMagick](https://imagemagick.org/)
+
+💡 Ensure the `.ico` includes multiple resolutions: **16x16, 32x32, 48x48, 64x64**.
+
+Save your icon as:  
+```
+icon.ico
+```
+⚙️ Step 2: Install rsrc
+
+rsrc is used to generate a .syso file embedding the icon into the final binary.
+
+Install it via:
+```
+go install github.com/akavel/rsrc@latest
+```
+Make sure $GOPATH/bin is in your PATH.
+📄 Step 3: Create rsrc.syso
+
+Run the following in the same directory as your .ico file:
+```
+rsrc -ico icon.ico
+```
+This generates a rsrc.syso file that Go will automatically include in the final executable during build.
+🛠 Step 4: Build Your Go App
+
+Now build your Go app:
+```
+go build -ldflags="-H=windowsgui" -o YourApp.exe
+```
+    -ldflags="-H=windowsgui" hides the terminal window if your app is GUI-based.
+
+    For console apps, you can skip -ldflags.
+
+🗂 Example Project Structure
+```
+myapp/
+├── main.go
+├── icon.ico
+├── rsrc.syso
+```
+🧼 Optional: Platform-Specific Resource File
+
+To avoid embedding the icon on non-Windows platforms, rename the .syso file to:
+```
+rsrc_windows.syso
+```
+Go will only include it when building on Windows.
+✅ Done!
+
+Your built .exe file will now have the icon you provided.
+
 ## 📝 License
 
 MIT © 2025 Shamim
